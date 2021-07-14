@@ -1,15 +1,9 @@
 package com.shopping_cart.authentication.response;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class JwtResponse {
     private String token;
     private String type = "Bearer";
@@ -20,5 +14,33 @@ public class JwtResponse {
         this.token = accessToken;
         this.username = username;
         this.authorities = authorities;
+    }
+
+    public String getAccessToken() {
+        return token;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.token = accessToken;
+    }
+
+    public String getTokenType() {
+        return type;
+    }
+
+    public void setTokenType(String tokenType) {
+        this.type = tokenType;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return authorities;
     }
 }
